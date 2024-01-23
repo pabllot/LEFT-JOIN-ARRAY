@@ -71,8 +71,11 @@ export const getLeaguesDB = async () => {
 
     const sql = `SELECT leagues.*, clubs.* LEFT JOIN clubs ON clubs.league_id = leagues.id;` 
 
+try {
+    // Extracting the result of the SQL query
     const [leagues] = await conn.query(sql);
 
+    // Checking if the result is empty
      if (leagues.length === 0) {
         return [];
       }
@@ -117,6 +120,9 @@ export const getLeaguesDB = async () => {
 }, []);
 
 return mergedLeagues;
+} catch (error){
+    console.error('Error fetching data from the database:', error);
+    }
 }
 ```
 
