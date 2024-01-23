@@ -4,7 +4,7 @@ In the world of databases and JavaScript, mastering the art of LEFT JOINs can si
 
 Explain the concept of LEFT JOIN in relational databases and why it is a valuable tool for combining data from two tables, even when there are no matching records.
 
-Imagine you have two arrays, items and relatedItems, representing data from different tables. Your goal is to merge these arrays based on a specific condition, resembling a LEFT JOIN scenario.
+Imagine you have two arrays, leagues and clubs, representing data from different tables. Your goal is to merge these arrays based on a specific condition, resembling a LEFT JOIN scenario.
 ```js
 // Representing table 1 from the database
 const leagues = [
