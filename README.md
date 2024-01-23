@@ -6,6 +6,7 @@ Explain the concept of LEFT JOIN in relational databases and why it is a valuabl
 
 Imagine you have two arrays, items and relatedItems, representing data from different tables. Your goal is to merge these arrays based on a specific condition, resembling a LEFT JOIN scenario.
 ```js
+// Representing table 1 from the database
 const leagues = [
     { id: 1, name: 'Premier League'},
     { id: 2, name: 'La Liga'},
@@ -13,6 +14,7 @@ const leagues = [
     { id: 4, name: 'Bundesliga' }
 ];
 
+// Representing table 2 from the database
 const clubs = [
     { league_id: 1, club_id: 1, club_name: 'Liverpool' },
     { league_id: 1, clucbId: 2, club_name: 'Manchester City' },
@@ -22,6 +24,9 @@ const clubs = [
 ```
 in this case, I would want a result like that:
 ```js
+
+// Representing desired result from from the LEFT JOIN
+
 const leagues = [
     {
         id: 1,
