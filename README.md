@@ -115,6 +115,8 @@ export const getLeaguesDB = async () => {
 
     return acc;
 }, []);
+
+return mergedLeagues;
 }
 ```
 
