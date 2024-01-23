@@ -66,64 +66,62 @@ In this example we are using static data. But when we are receiving data from ou
 
 ```js
 export const getLeaguesDB = async () => {
+    try {
+        const conn = await connect();
+        const sql = `SELECT leagues.*, clubs.* LEFT JOIN clubs ON clubs.league_id = leagues.id;`;
 
-    const conn = await connect()
+        // Extracting the result of the SQL query
+        const [leagues] = await conn.query(sql);
 
-    const sql = `SELECT leagues.*, clubs.* LEFT JOIN clubs ON clubs.league_id = leagues.id;` 
-
-try {
-    // Extracting the result of the SQL query
-    const [leagues] = await conn.query(sql);
-
-    // Checking if the result is empty
-     if (leagues.length === 0) {
-        return [];
-      }
-
-    const mergedLeagues = leagues.reduce((acc, league) => {
-
-    const { id } = league;
-
-    const existingLeague = acc.find((mergedLeague) => mergedLeague.id === id);
-
-    if (existingLeague) {
-        // If club exists, add it to the existing league's clubs array
-        const club = clubs.find((c) => c.league_id === id);
-        if (club) {
-            existingLeague.clubs.push({
-                club_id: club.club_id,
-                club_name: club.club_name,
-            });
-        }
-    } else {
-        // If no existing league, create a new league object
-        const newLeague = {
-            id,
-            name: league.name,
-            clubs: [],
-        };
-
-        // Check if there are clubs and add them to the new league's clubs array
-        const club = clubs.find((c) => c.league_id === id);
-        if (club) {
-            newLeague.clubs.push({
-                club_id: club.club_id,
-                club_name: club.club_name,
-            });
+        // Checking if the result is empty
+        if (leagues.length === 0) {
+            return [];
         }
 
-        // Add the new league to the accumulator
-        acc.push(newLeague);
-    }
+        const mergedLeagues = leagues.reduce((acc, league) => {
+            const { id } = league;
 
-    return acc;
-}, []);
+            const existingLeague = acc.find((mergedLeague) => mergedLeague.id === id);
 
-return mergedLeagues;
-} catch (error){
-    console.error('Error fetching data from the database:', error);
+            if (existingLeague) {
+                // If club exists, add it to the existing league's clubs array
+                const club = clubs.find((c) => c.league_id === id);
+                if (club) {
+                    existingLeague.clubs.push({
+                        club_id: club.club_id,
+                        club_name: club.club_name,
+                    });
+                }
+            } else {
+                // If no existing league, create a new league object
+                const newLeague = {
+                    id,
+                    name: league.name,
+                    clubs: [],
+                };
+
+                // Check if there are clubs and add them to the new league's clubs array
+                const club = clubs.find((c) => c.league_id === id);
+                if (club) {
+                    newLeague.clubs.push({
+                        club_id: club.club_id,
+                        club_name: club.club_name,
+                    });
+                }
+
+                // Add the new league to the accumulator
+                acc.push(newLeague);
+            }
+
+            return acc;
+        }, []);
+
+        return mergedLeagues;
+    } catch (error) {
+        console.error('Error fetching data from the database:', error);
+        // Handle the error appropriately
     }
-}
+};
 ```
 
 
