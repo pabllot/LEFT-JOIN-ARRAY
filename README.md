@@ -5,7 +5,7 @@ In the world of databases and JavaScript, mastering the art of LEFT JOINs can si
 Explain the concept of LEFT JOIN in relational databases and why it is a valuable tool for combining data from two tables, even when there are no matching records.
 
 Imagine you have two arrays, items and relatedItems, representing data from different tables. Your goal is to merge these arrays based on a specific condition, resembling a LEFT JOIN scenario.
-
+```
 const leagues = [
     { id: 1, name: 'Premier League'},
     { id: 2, name: 'La Liga'},
@@ -19,9 +19,9 @@ const clubs = [
     { league_id: 2, club_id: 3, club_name: 'Real Madrid' },
     { league_id: 3, club_id: 4, club_name: 'Juventus' },
 ];
-
+```
 in this case, I would want a result like that:
-
+```
 const leagues = [
     { id: 1, name: 'Premier League', clubs: [{club_id: 1, club_name: 'Liverpool'}, {club_id: 2, club_name: 'Manchester City'}]},
     { id: 2, name: 'La Liga', clubs: [{club_id: 3, club_name: 'Real Madrid'}]},
@@ -29,13 +29,13 @@ const leagues = [
     {id: 4, name: 'bundesliga', clubs: []}
 ]
 
+```
+
 Now, let's dive into the JavaScript solution that effectively performs the LEFT JOIN-like operation on the arrays leagues and clubs.
 
-javascript
+```
+    const mergedLeagues = leagues.reduce((acc, league) => {
 
-// Performing a LEFT JOIN simulation on leagues and clubs
-
-const mergedLeagues = leagues.reduce((acc, league) => {
     const { id } = league;
 
     const existingLeague = acc.find((mergedLeague) => mergedLeague.id === id);
@@ -72,6 +72,7 @@ const mergedLeagues = leagues.reduce((acc, league) => {
 
     return acc;
 }, []);
+```
 
 In a real-world scenario, consider a sports-related application where you have data about football leagues and their associated clubs. The leagues array could represent information about different football leagues, while the clubs array contains data about clubs associated with those leagues.
 
