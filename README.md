@@ -34,6 +34,7 @@ Now, let's dive into the JavaScript solution that effectively performs the LEFT 
 javascript
 
 // Performing a LEFT JOIN simulation on leagues and clubs
+
 const mergedLeagues = leagues.reduce((acc, league) => {
     const { id } = league;
 
