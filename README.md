@@ -10,7 +10,7 @@ const leagues = [
     { id: 1, name: 'Premier League'},
     { id: 2, name: 'La Liga'},
     { id: 3, name: 'Seria A'},
-    { id: 4, name: 'bundesliga' }
+    { id: 4, name: 'Bundesliga' }
 ];
 
 const clubs = [
