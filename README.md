@@ -56,7 +56,7 @@ const leagues = [
 
 Now, let's dive into the JavaScript solution that effectively performs the LEFT JOIN-like operation on the arrays leagues and clubs.
 
-```
+```js
     const mergedLeagues = leagues.reduce((acc, league) => {
 
     const { id } = league;
