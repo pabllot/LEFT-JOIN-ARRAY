@@ -65,13 +65,17 @@ Note:
 In this example we are using static data. But when we are receiving data from our database, it's important to make sure to surround the result of your query with square brackets [ ] to extract the first element of that result array, it is also crucial to handle the case when no rows are returned by the query. The check for an empty result (rows.length === 0) ensures that the function returns an empty array in such cases, preventing potential issues with the subsequent code.
 
 ```js
-const [leagues] = await conn.query(sql);
+    const conn = await connect()
 
- if (leagues.length === 0) {
-    return [];
-  }
+    const sql = `SELECT leagues.*, clubs.* LEFT JOIN clubs ON clubs.league_id = leagues.id;` 
 
-// then we would procede with data from db
+    const [leagues] = await conn.query(sql);
+
+     if (leagues.length === 0) {
+        return [];
+      }
+
+    // then we would procede with data from db
 
 ```
 
