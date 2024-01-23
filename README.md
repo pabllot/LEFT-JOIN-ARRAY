@@ -71,13 +71,14 @@ const [leagues] = await conn.query(sql);
     return [];
   }
 
-// ...then we would procede with data from db
+// then we would procede with data from db
 
-// now back to our static example below
 ```
 
 
 ```js
+    // now back to our static example 
+
     const mergedLeagues = leagues.reduce((acc, league) => {
 
     const { id } = league;
