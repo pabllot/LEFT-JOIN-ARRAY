@@ -24,33 +24,33 @@ in this case, I would want a result like that:
 ```
 const leagues = [
     {
-    id: 1,
-    name: 'Premier League',
-    clubs: [
-        {club_id: 1, club_name: 'Liverpool'},
-        {club_id: 2, club_name: 'Manchester City'}
-            ]
+        id: 1,
+        name: 'Premier League',
+        clubs: [
+            { club_id: 1, club_name: 'Liverpool' },
+            { club_id: 2, club_name: 'Manchester City' }
+        ]
     },
     {
         id: 2,
         name: 'La Liga',
         clubs: [
-            {club_id: 3, club_name: 'Real Madrid'}
-            ]
-        },
+            { club_id: 3, club_name: 'Real Madrid' }
+        ]
+    },
     {
         id: 3,
         name: 'Seria A',
         clubs: [
-        {club_id: 4, club_name: 'Juventus'}
-            ]
-        },
+            { club_id: 4, club_name: 'Juventus' }
+        ]
+    },
     {
         id: 4,
-        name: 'bundesliga',
-         clubs: []
+        name: 'Bundesliga',
+        clubs: []
     }
-]
+];
 
 ```
 
