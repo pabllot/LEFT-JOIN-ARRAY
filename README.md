@@ -98,7 +98,7 @@ Now, let's dive into the JavaScript solution that effectively performs the LEFT 
 ```
 
 Note:
-Make sure to surround the result of your query with square brackets ([]). In a real-world scenario where data is fetched from a database, it is crucial to handle the case when no rows are returned by the query. The check for an empty result (rows.length === 0) ensures that the function returns an empty array in such cases, preventing potential issues with the subsequent code. In this example, static data is used, so this check is not explicitly shown. However, it is a good practice to include it in a production environment, as I ilustrate below.
+Make sure to surround the result of your query with square brackets [ ] to extract the first element of that result array. In a real-world scenario where data is fetched from a database, it is crucial to handle the case when no rows are returned by the query. The check for an empty result (rows.length === 0) ensures that the function returns an empty array in such cases, preventing potential issues with the subsequent code. In this example, static data is used, so this check is not explicitly shown. However, it is a good practice to include it in a production environment, as I ilustrate below.
 
 ```js
 const [leagues] = await conn.query(sql);
