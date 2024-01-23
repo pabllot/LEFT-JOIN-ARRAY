@@ -17,7 +17,7 @@ const leagues = [
 // Representing table 2 from the database
 const clubs = [
     { league_id: 1, club_id: 1, club_name: 'Liverpool' },
-    { league_id: 1, clucbId: 2, club_name: 'Manchester City' },
+    { league_id: 1, clubId: 2, club_name: 'Manchester City' },
     { league_id: 2, club_id: 3, club_name: 'Real Madrid' },
     { league_id: 3, club_id: 4, club_name: 'Juventus' },
 ];
