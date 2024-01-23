@@ -6,7 +6,7 @@ Explain the concept of LEFT JOIN in relational databases and why it is a valuabl
 
 Imagine you have two arrays, leagues and clubs, representing data from different tables. Your goal is to merge these arrays based on a specific condition, resembling a LEFT JOIN scenario.
 ```js
-// Representing table 1 from the database
+// Representing result of table 1 from the database
 const leagues = [
     { id: 1, name: 'Premier League'},
     { id: 2, name: 'La Liga'},
@@ -14,7 +14,7 @@ const leagues = [
     { id: 4, name: 'Bundesliga' }
 ];
 
-// Representing table 2 from the database
+// Representing result of table 2 from the database
 const clubs = [
     { league_id: 1, club_id: 1, club_name: 'Liverpool' },
     { league_id: 1, clubId: 2, club_name: 'Manchester City' },
@@ -65,6 +65,8 @@ Note:
 In this example we are using static data. But when we are receiving data from our database, it's important to make sure to surround the result of your query with square brackets [ ] to extract the first element of that result array, it is also crucial to handle the case when no rows are returned by the query. The check for an empty result (rows.length === 0) ensures that the function returns an empty array in such cases, preventing potential issues with the subsequent code.
 
 ```js
+export const getLeaguesDB = async () => {
+
     const conn = await connect()
 
     const sql = `SELECT leagues.*, clubs.* LEFT JOIN clubs ON clubs.league_id = leagues.id;` 
@@ -74,14 +76,6 @@ In this example we are using static data. But when we are receiving data from ou
      if (leagues.length === 0) {
         return [];
       }
-
-    // then we would procede with data from db
-
-```
-
-
-```js
-    // now back to our static example 
 
     const mergedLeagues = leagues.reduce((acc, league) => {
 
@@ -121,6 +115,7 @@ In this example we are using static data. But when we are receiving data from ou
 
     return acc;
 }, []);
+}
 ```
 
 
