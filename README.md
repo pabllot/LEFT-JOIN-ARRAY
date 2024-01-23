@@ -103,13 +103,13 @@ Make sure to surround the result of your query with square brackets ([]). In a r
 example: 
 
 ```js
-//result of the query represented as rows, in the example above it was represented as leagues
-const [rows] = await conn.query(sql);
+const [leagues] = await conn.query(sql);
 
- if (rows.length === 0) {
+ if (leagues.length === 0) {
     return [];
   }
 ...rest of the code below
+
 ```
 
 
